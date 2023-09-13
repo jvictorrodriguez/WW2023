@@ -4,7 +4,7 @@ import com.ironhack.exceptions.ValueException;
 
 public abstract class Character implements Attacker{
     private static int idCounter = 1;
-    private int id;
+    private final int id;
     private String name;
     private int hp;
     private boolean isAlive;
