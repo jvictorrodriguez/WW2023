@@ -1,6 +1,8 @@
 package com.ironhack.model;
 
-public abstract class Character {
+import com.ironhack.exceptions.ValueException;
+
+public abstract class Character implements Attacker{
     private static int idCounter = 1;
     private int id;
     private String name;
@@ -9,13 +11,13 @@ public abstract class Character {
 
     public Character() {
         id = idCounter++;
+        isAlive=true;
     }
 
-    public Character(String name, int hp) {
+    public Character(String name, int hp) throws ValueException {
         this();
         this.name = name;
-        this.hp = hp;
-        isAlive = true;
+        setHp(hp);
     }
 
     public static void setIdCounter(int idCounter) {
@@ -39,7 +41,7 @@ public abstract class Character {
         return hp;
     }
 
-    public void setHp(int hp) {
+    public void setHp(int hp) throws ValueException {
         this.hp = hp;
     }
 
